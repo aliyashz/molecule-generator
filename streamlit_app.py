@@ -51,13 +51,22 @@ def analysis():
     st.pyplot(fig_hist)
    
     # Correlation heatmap
-    corr_matrix = data.corr()
+    corr_matrix = data.corr().fillna(0)  # Fill NaN with zeros
     fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
-    sns.heatmap(corr_matrix, annot=True, cmap="viridis", linewidths=.5)
+    sns.heatmap(corr_matrix, annot=True, cmap="coolwarm", linewidths=.5, vmin=-1, vmax=1, fmt=".2f")
     plt.title("Correlation Heatmap")
 
-    # Display the heatmap in Streamlit
-    st.pyplot(fig_heatmap)
+    # Save the heatmap to a temporary file
+    heatmap_file = "heatmap.png"
+    plt.savefig(heatmap_file, bbox_inches='tight')
+    plt.close(fig_heatmap)
+
+    # Display the heatmap image in Streamlit
+    st.image(heatmap_file)
+
+# Create a button to regenerate the heatmap (optional)
+if st.button("Regenerate Heatmap"):
+    analysis()
 
 
 def model():
