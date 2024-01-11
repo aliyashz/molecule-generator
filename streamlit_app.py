@@ -56,12 +56,21 @@ def analysis():
     # Bar chart for logP vs qed
     st.title("Bar Chart: logP vs qed")
     st.bar_chart(data[["logP", "qed"]].rename(columns={"logP": "X", "qed": "Y"}))
+   
+    # Correlation heatmap
+    corr_matrix = df.corr()
+    fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
+    sns.heatmap(corr_matrix, annot=True, cmap="viridis", linewidths=.5)
+    plt.title("Correlation Heatmap")
+
+    # Display the heatmap in Streamlit
+    st.pyplot(fig_heatmap)
 
 def model():
     st.subheader("Molecule Generator Model 🧪 ")
     st.write("Step one foot closer to AI-generated drugs.")
     st.write("The VAE model has learned to generate molecules that are chemically plausible and similar to those in the training data.")
-    image_url = ("https://github.com/aliyashz/DSP/5d50b14f7cd6e716b86e36f9bc87b283de81af90/model.png")
+    image_url = ("https://github.com/aliyashz/DSP/blob/d438cd18bcc994368909cca20fc6f76986ee5f5a/model3.jpg")
     st.image(image_url, caption='Your Image Caption', use_column_width=True)
 
 # Create tabs
