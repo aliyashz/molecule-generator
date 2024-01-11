@@ -19,16 +19,13 @@ def load_data():
     return data
 
 def home():
+    st.markdown("Our Main Goal:")
+    st.markdown('''
+    To develop a VAE model that is trained on diverse chemical structures to capture a wide range of molecular structure for the creation of a molecular generator.''')
     st.write("Firstly what is Generative AI? Generative AI is an aspect of AI that uses deep-learning algorithms to generate data identical to training data. The original data can be anything from an image to text to molecular structure data. To recognise patterns in the original data and generate new data that resembles it, generative AI uses neural networks as a component of machine learning.")
     st.write("For our model we have chosen Variational Encoder (VAE) to build a model that generates molecules according to their solubility level, SMILE structure, drug-likeness and surface area.")
     st.write("To understand more about how VAEs work watch the video below:")
     st.video("https://youtu.be/fcvYpzHmhvA?si=hkdVSN-zinCAdPqW")
-
-def about():
-    st.write("Get to know more about our objectives, goals, and aim.")
-    st.markdown("Our Main Goal:")
-    st.markdown('''
-    To develop a VAE model that is trained on diverse chemical structures to capture a wide range of molecular structure for the creation of a molecular generator.''')
 
 def analysis():
     st.write("The analysis below displays the Exploratory Data Analysis (EDA) for this project.")
@@ -56,7 +53,7 @@ def analysis():
     # Correlation heatmap
     corr_matrix = data.corr()
     fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
-    sns.heatmap(corr_matrix, annot=True, cmap="coolwarm", linewidths=.5, vmin=-1, vmax=1)
+    sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", linewidths=.5, vmin=-1, vmax=1)
     plt.title("Correlation Heatmap")
 
     # Display the heatmap in Streamlit
@@ -70,14 +67,12 @@ def model():
     st.image('https://raw.githubusercontent.com/aliyashz/DSP/d438cd18bcc994368909cca20fc6f76986ee5f5a/model3.jpg')
 
 # Create tabs
-tabs = ["Home🏚️", "About❓", "Analysis📊", "Model🤖"]
+tabs = ["Home🏚️", "Analysis📊", "Model🤖"]
 selected_tab = st.sidebar.selectbox("Select Tab", tabs)
 
 # Display the selected tab content
 if selected_tab == "Home🏚️":
     home()
-elif selected_tab == "About❓":
-    about()
 elif selected_tab == "Analysis📊":
     analysis()
 elif selected_tab == "Model🤖":
