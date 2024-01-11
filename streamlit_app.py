@@ -62,9 +62,7 @@ def model():
     st.write("Step one foot closer to AI-generated drugs.")
     st.write("The VAE model has learned to generate molecules that are chemically plausible and similar to those in the training data.")
     image_url = 'https://raw.githubusercontent.com/aliyashz/DSP/be7d25bdcced77fcaacf29a07ed5e51ac483caa3/model 3.png'
-
-# Display the image in Streamlit
-st.image(image_url, caption='Your Image Caption', use_column_width=True)
+    st.image(image_url, caption='Your Image Caption', use_column_width=True)
 
 # Create tabs
 tabs = ["Home🏚️", "About❓", "Analysis📊", "Model🤖"]
