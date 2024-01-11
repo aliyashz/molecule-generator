@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+import altair as alt
 
 # Custom CSS to style the title
 st.markdown(""" <style> .font {font-size:50px ; font-family: 'Playfair Display'; color: #FF4242;} </style> """, unsafe_allow_html=True)
@@ -50,19 +51,20 @@ def analysis():
     # Display the histogram plot in Streamlit
     st.pyplot(fig_hist)
    
-    # Correlation heatmap
     corr_matrix = data.corr().fillna(0)  # Fill NaN with zeros
-    fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
-    sns.heatmap(corr_matrix, annot=True, cmap="coolwarm", linewidths=.5, vmin=-1, vmax=1, fmt=".2f")
-    plt.title("Correlation Heatmap")
+    corr_chart = (
+        alt.Chart(corr_matrix.reset_index().melt('index'), height=200, width=200)
+        .mark_rect()
+        .encode(
+            x='index:O',
+            y='variable:O',
+            color='value:Q',
+            tooltip=['index', 'variable', 'value']
+        )
+    )
 
-    # Save the heatmap to a temporary file
-    heatmap_file = "heatmap.png"
-    plt.savefig(heatmap_file, bbox_inches='tight')
-    plt.close(fig_heatmap)
-
-    # Display the heatmap image in Streamlit
-    st.image(heatmap_file)
+    # Display the Altair chart in Streamlit
+    st.altair_chart(corr_chart, use_container_width=True)
 
 # Create a button to regenerate the heatmap (optional)
 if st.button("Regenerate Heatmap"):
