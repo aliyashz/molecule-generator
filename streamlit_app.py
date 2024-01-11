@@ -51,13 +51,14 @@ def analysis():
     st.pyplot(fig_hist)
    
     # Correlation heatmap
-    corr_matrix = data.corr()
+    corr_matrix = data.corr().fillna(0)  # Fill NaN with zeros
     fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
-    sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", linewidths=.5, vmin=-1, vmax=1)
+    sns.heatmap(corr_matrix, annot=True, cmap="coolwarm", linewidths=.5, vmin=-1, vmax=1, fmt=".2f")
     plt.title("Correlation Heatmap")
 
     # Display the heatmap in Streamlit
     st.pyplot(fig_heatmap)
+
 
 def model():
     st.subheader("Molecule Generator Model 🧪 ")
