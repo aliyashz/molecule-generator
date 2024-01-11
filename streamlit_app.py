@@ -20,8 +20,11 @@ def load_data():
 
 def home():
     st.title("Home")
-    st.write("Welcome to the Home tab!")
-    st.write("Generative AI is an aspect of AI that uses deep-learning algorithms to generate data identical to training data. The original data can be anything from an image to text to molecular structure data. To recognise patterns in the original data and generate new data that resembles it, generative AI uses neural networks as a component of machine learning. Some of the use cases for Generative AI include speeding up the drug development process, automating administration work, and developing models for early disease detection.")
+    st.write("Step one foot closer to AI-generated drugs.")
+    st.write("Firstly what is Generative AI? Generative AI is an aspect of AI that uses deep-learning algorithms to generate data identical to training data. The original data can be anything from an image to text to molecular structure data. To recognise patterns in the original data and generate new data that resembles it, generative AI uses neural networks as a component of machine learning.")
+    st.write("For our model we have chosen Variational Encoder (VAE) to build a model that generates molecules according to their solubility level, SMILE structure, drug-likeness and surface area.")
+    st.write("To understand more about how VAEs work watch the video below:")
+    st.video("https://youtu.be/fcvYpzHmhvA?si=hkdVSN-zinCAdPqW")
 
 def about():
     st.title("About")
@@ -42,9 +45,10 @@ def analysis():
     data = load_data()
     st.write("ZINC20 data:")
     st.write(data.head())
+
     # Histogram for logP
     fig_hist, ax_hist = plt.subplots(figsize=(6, 4))
-    sns.histplot(df["logP"].dropna(), bins=20, kde=True, color='#D65E3E')
+    sns.histplot(data["logP"].dropna(), bins=20, kde=True, color='#D65E3E')
     plt.title("Distribution of logP")
     plt.xlabel("logP")
     plt.ylabel("Frequency")
@@ -52,18 +56,18 @@ def analysis():
     # Display the histogram plot in Streamlit
     st.pyplot(fig_hist)
 
-    # Scatter plot for logP vs qed
-    fig_scatter, ax_scatter = plt.subplots(figsize=(6, 4))
-    sns.scatterplot(x="logP", y="qed", data=df)
-    plt.title("Scatter Plot: logP vs qed")
+    # Line plot for logP vs qed
+    fig_line, ax_line = plt.subplots(figsize=(6, 4))
+    sns.lineplot(x="logP", y="qed", data=data, marker='o', color='#1F77B4')
+    plt.title("Line Plot: logP vs qed")
     plt.xlabel("logP")
     plt.ylabel("qed")
 
-    # Display the scatter plot in Streamlit
-    st.pyplot(fig_scatter)
+    # Display the line plot in Streamlit
+    st.pyplot(fig_line)
 
     # Correlation heatmap
-    corr_matrix = df.corr()
+    corr_matrix = data.corr()
     fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
     sns.heatmap(corr_matrix, annot=True, cmap="viridis", linewidths=.5)
     plt.title("Correlation Heatmap")
