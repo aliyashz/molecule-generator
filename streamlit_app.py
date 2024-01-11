@@ -54,7 +54,7 @@ def analysis():
     st.pyplot(fig_hist)
    
     # Correlation heatmap
-    corr_matrix = data.corr().fillna(0)  # Replace NaN with 0 for the correlation matrix
+    corr_matrix = data.corr()
     fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
     sns.heatmap(corr_matrix, annot=True, cmap="coolwarm", linewidths=.5, vmin=-1, vmax=1)
     plt.title("Correlation Heatmap")
