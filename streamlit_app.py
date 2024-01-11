@@ -19,21 +19,18 @@ def load_data():
     return data
 
 def home():
-    st.title("Home")
     st.write("Firstly what is Generative AI? Generative AI is an aspect of AI that uses deep-learning algorithms to generate data identical to training data. The original data can be anything from an image to text to molecular structure data. To recognise patterns in the original data and generate new data that resembles it, generative AI uses neural networks as a component of machine learning.")
     st.write("For our model we have chosen Variational Encoder (VAE) to build a model that generates molecules according to their solubility level, SMILE structure, drug-likeness and surface area.")
     st.write("To understand more about how VAEs work watch the video below:")
     st.video("https://youtu.be/fcvYpzHmhvA?si=hkdVSN-zinCAdPqW")
 
 def about():
-    st.title("About")
     st.write("Get to know more about our objectives, goals, and aim.")
     st.markdown("Our Main Goal:")
     st.markdown('''
     To develop a VAE model that is trained on diverse chemical structures to capture a wide range of molecular structure for the creation of a molecular generator.''')
 
 def analysis():
-    st.title("Analysis")
     st.write("The analysis below displays the Exploratory Data Analysis (EDA) for this project.")
     st.text("Hint 1: SMILES are a textual representation of a molecule's structure.")
     st.text("Hint 2: logP is a measure of a molecule's hydrophobicity or lipophilicity.")
@@ -68,7 +65,7 @@ def analysis():
     st.pyplot(fig_line)
 
 def model():
-    st.title("Model")
+    st.subheader("Molecule Generator Model 🧪 ")
     st.write("Step one foot closer to AI-generated drugs.")
     st.write("This tab can include information about your machine learning model.")
 
