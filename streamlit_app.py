@@ -55,13 +55,18 @@ def analysis():
     
     # Bar chart for logP vs qed
     st.title("Bar Chart: logP vs qed")
-    st.bar_chart(data[["logP", "qed"]])
+    st.bar_chart(data[["logP", "qed"]].rename(columns={"logP": "X", "qed": "Y"}))
 
 def model():
     st.subheader("Molecule Generator Model 🧪 ")
     st.write("Step one foot closer to AI-generated drugs.")
     st.write("The VAE model has learned to generate molecules that are chemically plausible and similar to those in the training data.")
-    image_url = 'https://raw.githubusercontent.com/aliyashz/DSP/7f847be46f7b0fee9952b39b80d6e102ed1fcb5b/model 3.png'
+    image_url = (
+    "https://raw.githubusercontent.com/aliyashz/DSP/"
+    "7f847be46f7b0fee9952b39b80d6e102ed1fcb5b/model%203.png"
+)
+st.image(image_url, caption='Your Image Caption', use_column_width=True)
+
     st.image(image_url, caption='Your Image Caption', use_column_width=True)
 
 # Create tabs
