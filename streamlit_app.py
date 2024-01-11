@@ -1,5 +1,10 @@
 import streamlit as st
 
+# Custom CSS to style the title
+st.markdown(""" <style> .font {font-size:50px ; font-family: 'Playfair Display'; color: #FF4242;} </style> """, unsafe_allow_html=True)
+
+# Title
+st.markdown('<p class="font"> 🧬DRUG DISCOVERY🧬 </p>', unsafe_allow_html=True)
 def home():
     st.title("Home")
     st.write("Welcome to the Home tab!")
@@ -23,12 +28,10 @@ def model():
     st.write("Train and deploy your model in the Model tab.")
     st.write("This tab can include information about your machine learning model.")
     # Add more content as needed
-# Title
-st.markdown('<p class="font"> 🧬DRUG DISCOVERY🧬 </p>', unsafe_allow_html=True)
 
-menu = ["Home 🏚️", "About❓", "Analysis 📊", "Model 🤖"]
-choice = st.sidebar.selectbox("Navigation", menu)
-
+# Create tabs
+tabs = ["Home", "About", "Analysis", "Model"]
+selected_tab = st.sidebar.selectbox("Select Tab", tabs)
 
 # Display the selected tab content
 if selected_tab == "Home":
