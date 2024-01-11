@@ -52,22 +52,19 @@ def analysis():
 
     # Display the histogram plot in Streamlit
     st.pyplot(fig_hist)
-
-    # Line plot for logP vs qed
-    fig_line, ax_line = plt.subplots(figsize=(6, 4))
-    # Convert "logP" and "qed" to numeric, handle NaN values, and plot line plot
-    sns.lineplot(x=pd.to_numeric(data["logP"], errors='coerce').dropna(), y=pd.to_numeric(data["qed"], errors='coerce').dropna(), marker='o', color='#1F77B4')
-    plt.title("Line Plot: logP vs qed")
-    plt.xlabel("logP")
-    plt.ylabel("qed")
-
-    # Display the line plot in Streamlit
-    st.pyplot(fig_line)
+    
+    # Bar chart for logP vs qed
+    st.title("Bar Chart: logP vs qed")
+    st.bar_chart(data[["logP", "qed"]])
 
 def model():
     st.subheader("Molecule Generator Model 🧪 ")
     st.write("Step one foot closer to AI-generated drugs.")
-    st.write("This tab can include information about your machine learning model.")
+    st.write("The VAE model has learned to generate molecules that are chemically plausible and similar to those in the training data.")
+    image_url = 'https://raw.githubusercontent.com/aliyashz/DSP/be7d25bdcced77fcaacf29a07ed5e51ac483caa3/model 3.png'
+
+# Display the image in Streamlit
+st.image(image_url, caption='Your Image Caption', use_column_width=True)
 
 # Create tabs
 tabs = ["Home🏚️", "About❓", "Analysis📊", "Model🤖"]
