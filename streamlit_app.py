@@ -67,7 +67,7 @@ def analysis():
 
 def model():
     st.title("Model")
-    st.write("Step one foot closer to AI-generated drugs.")")
+    st.write("Step one foot closer to AI-generated drugs.")
     st.write("This tab can include information about your machine learning model.")
 
 # Create tabs
