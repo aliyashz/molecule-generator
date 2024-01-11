@@ -41,14 +41,15 @@ def analysis():
     st.text("Hint 3: qed is a metric used to assess the drug-likeness of a molecule.")
     st.text("Hint 4: SAS represents the surface area of a molecule that is accessible to the solvent.")
 
-    # Load and display the dataset
+   # Load and display the dataset
     data = load_data()
     st.write("ZINC20 data:")
     st.write(data.head())
 
     # Histogram for logP
     fig_hist, ax_hist = plt.subplots(figsize=(6, 4))
-    sns.histplot(data["logP"].dropna(), bins=20, kde=True, color='#D65E3E')
+    # Convert "logP" to numeric, handle NaN values, and plot histogram
+    sns.histplot(pd.to_numeric(data["logP"], errors='coerce').dropna(), bins=20, kde=True, color='#D65E3E')
     plt.title("Distribution of logP")
     plt.xlabel("logP")
     plt.ylabel("Frequency")
@@ -74,7 +75,6 @@ def analysis():
 
     # Display the heatmap in Streamlit
     st.pyplot(fig_heatmap)
-
 
 def model():
     st.title("Model")
