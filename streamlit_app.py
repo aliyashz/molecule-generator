@@ -57,9 +57,10 @@ def analysis():
     # Display the histogram plot in Streamlit
     st.pyplot(fig_hist)
 
-    # Line plot for logP vs qed
+   # Line plot for logP vs qed
     fig_line, ax_line = plt.subplots(figsize=(6, 4))
-    sns.lineplot(x="logP", y="qed", data=data, marker='o', color='#1F77B4')
+    # Convert "logP" and "qed" to numeric, handle NaN values, and plot line plot
+    sns.lineplot(x=pd.to_numeric(data["logP"], errors='coerce').dropna(), y=pd.to_numeric(data["qed"], errors='coerce').dropna(), marker='o', color='#1F77B4')
     plt.title("Line Plot: logP vs qed")
     plt.xlabel("logP")
     plt.ylabel("qed")
