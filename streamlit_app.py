@@ -65,8 +65,6 @@ def model():
     "https://raw.githubusercontent.com/aliyashz/DSP/"
     "7f847be46f7b0fee9952b39b80d6e102ed1fcb5b/model%203.png"
 )
-st.image(image_url, caption='Your Image Caption', use_column_width=True)
-
     st.image(image_url, caption='Your Image Caption', use_column_width=True)
 
 # Create tabs
