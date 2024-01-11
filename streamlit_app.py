@@ -12,7 +12,7 @@ st.markdown(""" <style> .font {font-size:50px ; font-family: 'Playfair Display';
 st.markdown('<p class="font"> 🧬DRUG DISCOVERY🧬 </p>', unsafe_allow_html=True)
 
 # Load dataset from GitHub
-@st.cache
+@st.cache_data
 def load_data():
     # Replace 'raw.githubusercontent.com' with 'raw.github.com' if needed
     url = 'https://raw.githubusercontent.com/aliyashz/DSP/7f847be46f7b0fee9952b39b80d6e102ed1fcb5b/250k_rndm_zinc_drugs.csv'
