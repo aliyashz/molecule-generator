@@ -51,7 +51,8 @@ def analysis():
     # Display the histogram plot in Streamlit
     st.pyplot(fig_hist)
    
-   column_name = "qed"
+    # Bar chart for another column (you can replace "column_name" with the column you want to visualize)
+    column_name = "qed"
     bar_chart = (
         alt.Chart(data)
         .mark_bar()
