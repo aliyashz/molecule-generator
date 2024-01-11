@@ -23,10 +23,6 @@ def model():
     st.write("Train and deploy your model in the Model tab.")
     st.write("This tab can include information about your machine learning model.")
     # Add more content as needed
-
-# Custom CSS to style the title
-st.markdown(""" <style> .font {font-size:50px ; font-family: 'Playfair Display'; color: #FF4242;} </style> """, unsafe_allow_html=True)
-
 # Title
 st.markdown('<p class="font"> 🧬DRUG DISCOVERY🧬 </p>', unsafe_allow_html=True)
 
