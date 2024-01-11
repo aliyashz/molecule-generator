@@ -61,10 +61,7 @@ def model():
     st.subheader("Molecule Generator Model 🧪 ")
     st.write("Step one foot closer to AI-generated drugs.")
     st.write("The VAE model has learned to generate molecules that are chemically plausible and similar to those in the training data.")
-    image_url = (
-    "https://raw.githubusercontent.com/aliyashz/DSP/"
-    "7f847be46f7b0fee9952b39b80d6e102ed1fcb5b/model%203.png"
-)
+    image_url = ("https://github.com/aliyashz/DSP/5d50b14f7cd6e716b86e36f9bc87b283de81af90/model.png")
     st.image(image_url, caption='Your Image Caption', use_column_width=True)
 
 # Create tabs
