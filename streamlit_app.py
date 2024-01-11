@@ -51,23 +51,18 @@ def analysis():
     # Display the histogram plot in Streamlit
     st.pyplot(fig_hist)
    
-    corr_matrix = data.corr().fillna(0)  # Fill NaN with zeros
-    corr_chart = (
-        alt.Chart(corr_matrix.reset_index().melt('index'), height=200, width=200)
-        .mark_rect()
+   column_name = "qed"
+    bar_chart = (
+        alt.Chart(data)
+        .mark_bar()
         .encode(
-            x='index:O',
-            y='variable:O',
-            color='value:Q',
-            tooltip=['index', 'variable', 'value']
+            x=alt.X(f"{column_name}:O", title=column_name),
+            y="count()"
         )
     )
 
-    # Display the Altair chart in Streamlit
-    st.altair_chart(corr_chart, use_container_width=True)
-
-# Remove the button condition
-analysis()
+    # Display the Altair bar chart in Streamlit
+    st.altair_chart(bar_chart, use_container_width=True)
 
 def model():
     st.subheader("Molecule Generator Model 🧪 ")
