@@ -54,7 +54,7 @@ def analysis():
     st.pyplot(fig_hist)
    
     # Correlation heatmap
-    corr_matrix = df.corr()
+    corr_matrix = data.corr()
     fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
     sns.heatmap(corr_matrix, annot=True, cmap="warm", linewidths=.5)
     plt.title("Correlation Heatmap")
@@ -67,7 +67,6 @@ def model():
     st.write("Step one foot closer to AI-generated drugs.")
     st.write("The VAE model has learned to generate molecules that are chemically plausible and similar to those in the training data.")
     st.write('Here we use the image URL as the input argument to st.image')
-    st.code("st.image('https://streamlit.io/images/brand/streamlit-mark-light.png')")
     st.image('https://github.com/aliyashz/DSP/d438cd18bcc994368909cca20fc6f76986ee5f5a/model3.jpg')
 
 # Create tabs
