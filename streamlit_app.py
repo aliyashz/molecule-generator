@@ -21,7 +21,8 @@ def load_data():
 def home():
     st.title("Home")
     st.write("Welcome to the Home tab!")
-    st.write("This is a paragraph of text for the Home tab.")
+    st.write("Generative AI is an aspect of AI that uses deep-learning algorithms to generate data identical to training data. The original data can be anything from an image to text to molecular structure data. To recognise patterns in the original data and generate new data that resembles it, generative AI uses neural networks as a component of machine learning. Some of the use cases for Generative AI include speeding up the drug development process, automating administration work, and developing models for early disease detection. 
+")
 
 def about():
     st.title("About")
