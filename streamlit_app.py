@@ -19,10 +19,10 @@ def load_data():
     return data
 
 def home():
+    st.write("Firstly what is Generative AI? Generative AI is an aspect of AI that uses deep-learning algorithms to generate data identical to training data. The original data can be anything from an image to text to molecular structure data. To recognise patterns in the original data and generate new data that resembles it, generative AI uses neural networks as a component of machine learning.")
     st.markdown("Our Main Goal:")
     st.markdown('''
     To develop a VAE model that is trained on diverse chemical structures to capture a wide range of molecular structure for the creation of a molecular generator.''')
-    st.write("Firstly what is Generative AI? Generative AI is an aspect of AI that uses deep-learning algorithms to generate data identical to training data. The original data can be anything from an image to text to molecular structure data. To recognise patterns in the original data and generate new data that resembles it, generative AI uses neural networks as a component of machine learning.")
     st.write("For our model we have chosen Variational Encoder (VAE) to build a model that generates molecules according to their solubility level, SMILE structure, drug-likeness and surface area.")
     st.write("To understand more about how VAEs work watch the video below:")
     st.video("https://youtu.be/fcvYpzHmhvA?si=hkdVSN-zinCAdPqW")
@@ -51,9 +51,9 @@ def analysis():
     st.pyplot(fig_hist)
    
     # Correlation heatmap
-    corr_matrix = data.corr().fillna(0)  # Fill NaN with zeros
+    corr_matrix = data.corr()
     fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
-    sns.heatmap(corr_matrix, annot=True, cmap="coolwarm", linewidths=.5, vmin=-1, vmax=1, fmt=".2f")
+    sns.heatmap(corr_matrix, annot=True, cmap="viridis", linewidths=.5)
     plt.title("Correlation Heatmap")
 
     # Display the heatmap in Streamlit
