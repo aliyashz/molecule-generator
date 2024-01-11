@@ -68,9 +68,7 @@ def model():
     st.write("The VAE model has learned to generate molecules that are chemically plausible and similar to those in the training data.")
     st.write('Here we use the image URL as the input argument to st.image')
     st.code("st.image('https://streamlit.io/images/brand/streamlit-mark-light.png')")
-    st.image('https://streamlit.io/images/brand/streamlit-mark-light.png')
-    image_url = ("https://pin.it/5w8ONoIxr")
-    st.image(image_url, caption='Your Image Caption', use_column_width=True)
+    st.image('https://github.com/aliyashz/DSP/d438cd18bcc994368909cca20fc6f76986ee5f5a/model3.jpg')
 
 # Create tabs
 tabs = ["Home🏚️", "About❓", "Analysis📊", "Model🤖"]
