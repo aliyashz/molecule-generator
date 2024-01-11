@@ -32,10 +32,10 @@ def about():
 
 def analysis():
     st.write("The analysis below displays the Exploratory Data Analysis (EDA) for this project.")
-    st.text("Hint 1: SMILES are a textual representation of a molecule's structure.")
-    st.text("Hint 2: logP is a measure of a molecule's hydrophobicity or lipophilicity.")
-    st.text("Hint 3: qed is a metric used to assess the drug-likeness of a molecule.")
-    st.text("Hint 4: SAS represents the surface area of a molecule that is accessible to the solvent.")
+    st.write("Hint 1: SMILES are a textual representation of a molecule's structure.")
+    st.write("Hint 2: logP is a measure of a molecule's hydrophobicity or lipophilicity.")
+    st.write("Hint 3: qed is a metric used to assess the drug-likeness of a molecule.")
+    st.write("Hint 4: SAS represents the surface area of a molecule that is accessible to the solvent.")
 
     # Load and display the dataset
     data = load_data()
@@ -56,7 +56,7 @@ def analysis():
     # Correlation heatmap
     corr_matrix = data.corr().fillna(0)  # Replace NaN with 0 for the correlation matrix
     fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
-    sns.heatmap(corr_matrix, annot=True, cmap="warm", linewidths=.5)
+    sns.heatmap(corr_matrix, annot=True, cmap="coolwarm", linewidths=.5, vmin=-1, vmax=1)
     plt.title("Correlation Heatmap")
 
     # Display the heatmap in Streamlit
@@ -66,7 +66,7 @@ def model():
     st.subheader("Molecule Generator Model 🧪 ")
     st.write("Step one foot closer to AI-generated drugs.")
     st.write("The VAE model has learned to generate molecules that are chemically plausible and similar to those in the training data.")
-    st.write('Here we use the image URL as the input argument to st.image')
+    st.write('Keep scrolling to discover more molecules!!')
     st.image('https://raw.githubusercontent.com/aliyashz/DSP/d438cd18bcc994368909cca20fc6f76986ee5f5a/model3.jpg')
 
 # Create tabs
