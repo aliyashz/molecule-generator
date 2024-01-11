@@ -66,10 +66,8 @@ def analysis():
     # Display the Altair chart in Streamlit
     st.altair_chart(corr_chart, use_container_width=True)
 
-# Create a button to regenerate the heatmap (optional)
-if st.button("Regenerate Heatmap"):
-    analysis()
-
+# Remove the button condition
+analysis()
 
 def model():
     st.subheader("Molecule Generator Model 🧪 ")
