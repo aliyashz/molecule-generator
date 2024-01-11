@@ -40,7 +40,7 @@ def analysis():
     st.text("Hint 3: qed is a metric used to assess the drug-likeness of a molecule.")
     st.text("Hint 4: SAS represents the surface area of a molecule that is accessible to the solvent.")
 
-   # Load and display the dataset
+    # Load and display the dataset
     data = load_data()
     st.write("ZINC20 data:")
     st.write(data.head())
@@ -56,14 +56,32 @@ def analysis():
     # Display the histogram plot in Streamlit
     st.pyplot(fig_hist)
 
+    # Line plot for logP vs qed
+    fig_line, ax_line = plt.subplots(figsize=(6, 4))
+    # Convert "logP" and "qed" to numeric, handle NaN values, and plot line plot
+    sns.lineplot(x=pd.to_numeric(data["logP"], errors='coerce').dropna(), y=pd.to_numeric(data["qed"], errors='coerce').dropna(), marker='o', color='#1F77B4')
+    plt.title("Line Plot: logP vs qed")
+    plt.xlabel("logP")
+    plt.ylabel("qed")
+
+    # Display the line plot in Streamlit
+    st.pyplot(fig_line)
+
     # Correlation heatmap
     corr_matrix = data.corr()
-    fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
-    sns.heatmap(corr_matrix, annot=True, cmap="viridis", linewidths=.5)
-    plt.title("Correlation Heatmap")
 
-    # Display the heatmap in Streamlit
-    st.pyplot(fig_heatmap)
+    # Check if the correlation matrix contains any NaN values
+    if corr_matrix.isnull().values.any():
+        st.warning("Warning: The correlation matrix contains NaN values. Heatmap cannot be generated.")
+    else:
+        # Plot heatmap only if there are no NaN values in the correlation matrix
+        fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
+        sns.heatmap(corr_matrix, annot=True, cmap="viridis", linewidths=.5)
+        plt.title("Correlation Heatmap")
+
+        # Display the heatmap in Streamlit
+        st.pyplot(fig_heatmap)
+
 
 def model():
     st.title("Model")
