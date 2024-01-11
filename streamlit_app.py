@@ -24,13 +24,6 @@ def model():
     st.write("This tab can include information about your machine learning model.")
     # Add more content as needed
 
-# Create tabs
-
-# Load ZINC dataset
-csv_path = st.cache_data(pd.read_csv)(
-    "https://raw.githubusercontent.com/aliyashz/DSP/7f847be46f7b0fee9952b39b80d6e102ed1fcb5b/250k_rndm_zinc_drugs.csv"
-)
-
 # Custom CSS to style the title
 st.markdown(""" <style> .font {font-size:50px ; font-family: 'Playfair Display'; color: #FF4242;} </style> """, unsafe_allow_html=True)
 
