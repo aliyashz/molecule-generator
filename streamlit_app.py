@@ -67,22 +67,6 @@ def analysis():
     # Display the line plot in Streamlit
     st.pyplot(fig_line)
 
-    # Correlation heatmap
-    corr_matrix = data.corr()
-
-    # Check if the correlation matrix contains any NaN values
-    if corr_matrix.isnull().values.any():
-        st.warning("Warning: The correlation matrix contains NaN values. Heatmap cannot be generated.")
-    else:
-        # Plot heatmap only if there are no NaN values in the correlation matrix
-        fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
-        sns.heatmap(corr_matrix, annot=True, cmap="viridis", linewidths=.5)
-        plt.title("Correlation Heatmap")
-
-        # Display the heatmap in Streamlit
-        st.pyplot(fig_heatmap)
-
-
 def model():
     st.title("Model")
     st.write("Step one foot closer to AI-generated drugs.")
