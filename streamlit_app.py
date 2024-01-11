@@ -52,15 +52,11 @@ def analysis():
 
     # Display the histogram plot in Streamlit
     st.pyplot(fig_hist)
-    
-    # Bar chart for logP vs qed
-    st.title("Bar Chart: logP vs qed")
-    st.bar_chart(data[["logP", "qed"]].rename(columns={"logP": "X", "qed": "Y"}))
    
     # Correlation heatmap
     corr_matrix = df.corr()
     fig_heatmap, ax_heatmap = plt.subplots(figsize=(6, 4))
-    sns.heatmap(corr_matrix, annot=True, cmap="viridis", linewidths=.5)
+    sns.heatmap(corr_matrix, annot=True, cmap="warm", linewidths=.5)
     plt.title("Correlation Heatmap")
 
     # Display the heatmap in Streamlit
@@ -70,6 +66,9 @@ def model():
     st.subheader("Molecule Generator Model 🧪 ")
     st.write("Step one foot closer to AI-generated drugs.")
     st.write("The VAE model has learned to generate molecules that are chemically plausible and similar to those in the training data.")
+    st.write('Here we use the image URL as the input argument to st.image')
+    st.code("st.image('https://streamlit.io/images/brand/streamlit-mark-light.png')")
+    st.image('https://streamlit.io/images/brand/streamlit-mark-light.png')
     image_url = ("https://pin.it/5w8ONoIxr")
     st.image(image_url, caption='Your Image Caption', use_column_width=True)
 
