@@ -50,8 +50,9 @@ def analysis():
 
     # Display the histogram plot in Streamlit
     st.pyplot(fig_hist)
-@st.cache
-    st.image('https://raw.githubusercontent.com/aliyashz/DSP/d438cd18bcc994368909cca20fc6f76986ee5f5a/heatmap.png')
+    
+    heatmap_image_url = 'https://raw.githubusercontent.com/aliyashz/DSP/d438cd18bcc994368909cca20fc6f76986ee5f5a/heatmap.png'
+    st.image(heatmap_image_url)
 
 
 def model():
