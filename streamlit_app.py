@@ -57,7 +57,6 @@ def model():
     st.subheader("Molecule Generator Model 🧪 ")
     st.write("Step one foot closer to AI-generated drugs.")
     st.write("The VAE model has learned to generate molecules that are chemically plausible and similar to those in the training data.")
-    st.write("Try it out yourselves >> [link](https://colab.research.google.com/drive/1Te0nC6A_YiFAaqLsX_x7wb8VmxgADRtt?usp=sharing)")
     st.write('Keep scrolling to discover more molecules!!')
     st.image('https://raw.githubusercontent.com/aliyashz/DSP/d438cd18bcc994368909cca20fc6f76986ee5f5a/model3.jpg')
 
